@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/style.css" rel="stylesheet" style="text/css" media="screen"/>
+<title>Done!</title>
+</h:head>
+<h:body>
+  <f:view>
+   <h:form>
+ <div id="header">
+  <h2><h:outputLabel value="Congratulations!!" style="margin-left: 40%; margin-right: 40%"/> </h2>
+ </div> 
+
+   <h:outputLabel value="Your score: " for="score" style="margin-left: auto">
+    <h:outputLabel value="#{Quiz.score}" id="score"/>
+   </h:outputLabel>
+<br/>
+   <h:outputLabel value="Mistakes: " for="mistake" style="margin-left: auto">
+    <h:outputLabel value="#{Quiz.mistake}" id="mistake"/>
+   </h:outputLabel>
+
+ <fieldset><legend>U answer all questions!</legend>   
+   <center>
+          <h:commandButton value="Start again!" action="#{Quiz.Start}"/>
+   </center>   
+ </fieldset>
+ <h:link value="backHome" outcome="home" style="margin-left: 92%"/>
+ <br/>
+ <h:link value="backUser" outcome="user" style="margin-left: 92%"/>
+   </h:form>
+  </f:view>
+</h:body>
+</html>
