@@ -48,7 +48,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <configuration>
            <artifactItems>
             <artifactItem>
-             <groupId>com.github.isimone</groupId>
+             <groupId>com.github.jsimone</groupId>
              <artifactId>webapp-runner</artifactId>
              <version>8.5.27.0</version>
              <destFileName>webapp-runner.jar</destFileName>
@@ -97,6 +97,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   </repositories>
   
   <dependencies>
+      
       <dependency>
        <groupId>junit</groupId>
        <artifactId>junit</artifactId>
