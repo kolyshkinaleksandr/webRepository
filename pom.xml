@@ -11,7 +11,9 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <properties>
    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-  <build>
+  
+ <build>
+   <finalName>WebProject</finalName>
     <sourceDirectory>src</sourceDirectory>
     <resources>
       <resource>
@@ -21,7 +23,42 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         </excludes>
       </resource>
     </resources>
+  
     <plugins>
+      <plugin>
+       <groupId>com.heroku.sdk</groupId>
+       <artifactId>heroku-maven-plugin</artifactId>
+       <version>2.0.3</version>
+       <configuration>
+        <appName>WebProject</appName>
+        <processTypes>
+         <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
+        </processTypes>
+       </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+         <execution>
+          <phase>package</phase>
+          <goals><goal>copy</goal></goals>
+          <configuration>
+           <artifactItems>
+            <artifactItem>
+             <groupId>com.github.isimone</groupId>
+             <artifactId>webapp-runner</artifactId>
+             <version>8.5.27.0</version>
+             <destFileName>webapp-runner.jar</destFileName>
+            </artifactItem>
+           </artifactItems>
+          </configuration>         
+         </execution>
+        </executions>      
+      </plugin>
+      
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.5.1</version>
@@ -30,6 +67,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <target>1.8</target>
         </configuration>
       </plugin>
+      
       <plugin>
         <artifactId>maven-war-plugin</artifactId>
         <version>3.0.0</version>
@@ -38,7 +76,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         </configuration>
       </plugin>
     </plugins>
-  </build>
+ </build>
   <repositories>
    <repository>
     <releases>
@@ -59,6 +97,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   </repositories>
   
   <dependencies>
+      <dependency>
+       <groupId>junit</groupId>
+       <artifactId>junit</artifactId>
+       <version>3.8.1</version>
+       <scope>test</scope>
+      </dependency>
+      
       <dependency>
          <groupId>com.sun.faces</groupId>
          <artifactId>jsf-api</artifactId>
