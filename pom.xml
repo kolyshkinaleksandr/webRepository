@@ -33,14 +33,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <target>1.8</target>
         </configuration>
       </plugin>
-      
-      <plugin>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.0.0</version>
-        <configuration>
-          <warSourceDirectory>WebContent</warSourceDirectory>
-        </configuration>
-      </plugin>
             
       <plugin>
        <groupId>com.heroku.sdk</groupId>
@@ -51,6 +43,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <processTypes>
          <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
         </processTypes>
+       </configuration>
+      </plugin>
+      
+      <plugin>
+       <groupId>org.apache.maven.plugins</groupId>
+       <artifactId>maven-war-plugin</artifactId>
+       <version>3.0.0</version>
+       <configuration>
+         <warSourceDirectory>WebContent</warSourceDirectory>
+         <failOnMissingWebXml>false</failOnMissingWebXml>
+         <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+         <warName>${project.artifactId}</warName>
        </configuration>
       </plugin>
       
