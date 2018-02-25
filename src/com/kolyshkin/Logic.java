@@ -11,6 +11,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Map;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
@@ -254,5 +255,9 @@ public class Logic {
 			}
 		}
 		return "administration";
+	}
+
+	public static void EmailSending(){
+
 	}
 }

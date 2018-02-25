@@ -15,15 +15,16 @@ xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/
     <param-name>javax.faces.VALIDATE_EMPTY_FIELDS</param-name>
     <param-value>true</param-value>
   </context-param>
-  <servlet>
+  
+   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/faces/*</url-pattern>
+    <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
+
     <servlet>
      <display-name>RetreiveImage</display-name>
      <servlet-name>RetreiveImage</servlet-name>
