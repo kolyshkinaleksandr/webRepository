@@ -54,7 +54,10 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
        <artifactId>maven-war-plugin</artifactId>
        <version>3.0.0</version>
        <configuration>
+         <warSourceDirectory>WebContent</warSourceDirectory>
          <failOnMissingWebXml>false</failOnMissingWebXml>
+         <webappDirectory>${project.build.directory}/${project.artifactId}</webappDirectory>
+         <warName>${project.artifactId}</warName>
        </configuration>
       </plugin>
       
