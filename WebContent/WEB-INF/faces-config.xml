@@ -6,6 +6,11 @@
     version="2.2">
     
  <application>
+ <locale-config>
+  <default-locale>en</default-locale>
+  <supported-locale>de</supported-locale>
+  <supported-locale>ua</supported-locale>
+ </locale-config>
   <resource-bundle>
     <base-name>resources.labels</base-name>
     <var>label</var>
